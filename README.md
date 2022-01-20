@@ -3,5 +3,5 @@
 
 - 프로그래머스
 
-[sql 문제 풀이](https://github.com/bluemumin/solving_the_algorithm_problem/tree/main/programmers/sql)
+  [sql 문제 풀이](https://github.com/bluemumin/solving_the_algorithm_problem/tree/main/programmers/sql)
 
