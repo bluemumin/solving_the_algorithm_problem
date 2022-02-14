@@ -182,3 +182,93 @@ def solution(arr1, arr2):
             arr1[j][i] = arr1[j][i] + arr2[j][i]
 
     return arr1
+
+# 같은 숫자는 싫어
+
+def solution(s):
+    temp = []
+    for i in s:
+        if temp[-1:] == [i]: 
+            continue
+        temp.append(i)
+    return temp
+
+# 문자열 내림차순으로 배치하기
+
+def solution(s):
+    return ''.join(sorted(s, reverse=True))
+
+# 콜라츠 추측
+
+def solution(num):
+    answer = 0
+    while num != 1:
+        if num%2 == 0:
+            num = num/2
+        else:
+            num = 3*num + 1
+            
+        answer += 1
+        if answer >= 500:
+            return -1
+
+    return answer
+
+# 평균 구하기
+
+import numpy as np
+
+def solution(arr):
+    return np.mean(arr)
+
+# x만큼 간격이 있는 n개의 숫자
+
+def solution(x, n):
+    
+    if x == 0: #x가 0이고 n이 자연수일때 반환
+        return [0]*n
+    else: 
+        return list(range(x, x*(n+1), x))
+
+# 직사각형 별찍기
+a, b = map(int, input().strip().split(' ')) #기본 제공
+
+#return이 아니라 print로 해결해야함
+for i in range(b):
+    for j in range(a):
+        print("*", end='')
+    print()
+
+# 최대 공약수와 최소공배수
+
+import math
+
+def solution(n, m):
+    return sorted([math.gcd(n,m), math.lcm(n,m)]) #단, 프로그래머스에서는 실행 안됨
+
+def solution(n, m):
+    #최소 공배수만 구한 버전
+    temp = []
+    for i in range(max(n,m), (n*m) + 1):
+        if i%n == 0 and i%m ==0:
+            temp.append(i)
+            break
+            
+    return sorted([math.gcd(n,m), temp[0]])
+
+# 짝수와 홀수
+
+def solution(num):
+    if num % 2 == 1:
+        return "Odd"
+    else:
+        return "Even"
+
+# 정수 제곱근 판별
+
+def solution(n):
+    
+    if round(n**0.5) == n**0.5:
+        return ((n**0.5)+1)**2
+    else:
+        return -1
