@@ -176,12 +176,4 @@ def solution(price, money, count):
 # 폰켓몬
 
 def solution(nums):
-    answer = 0
-    length = len(nums) // 2
-    temp = list(set(nums))
-    
-    for i in range(len(temp)) :
-        if(answer < length):
-            answer += 1
-            
-    return answer
+    return min(len(nums) // 2, len(list(set(nums))))
