@@ -1,3 +1,5 @@
+# LV1
+
 # [1차] 비밀지도
 
 def solution(n, arr1, arr2):
@@ -73,3 +75,43 @@ def solution(dartResult):
     
     return answer
 
+# LV2
+
+# [1차] 뉴스 클러스터링
+
+def solution(str1, str2):
+    
+    from collections import Counter
+    import re
+    check = re.compile('[a-z]{2}')
+
+    low_str1 = str1.lower()
+    low_str2 = str2.lower()
+    
+    two1 = [low_str1[i] + low_str1[i+1] for i in range(0,len(low_str1)-1)]
+    two2 = [low_str2[i] + low_str2[i+1] for i in range(0,len(low_str2)-1)]
+    
+    final1 = [i for i in two1 if check.findall(i) != []]
+    final2 = [i for i in two2 if check.findall(i) != []]
+    
+    Counter1 = Counter(final1)
+    Counter2 = Counter(final2)
+    
+    inter = list((Counter1 & Counter2).elements())
+    union = list((Counter1 | Counter2).elements())
+    
+    if len(union) == 0 and len(inter) == 0:
+        return 65536
+    else:
+        return int(len(inter)/len(union) * 65536)
+
+#영어 끝말잇기
+
+def solution(n, words):
+
+    for i in range(1,len(words)):
+        if (len(words[i]) == 1) or (words[i][0] != words[i-1][-1])  or (words[i] in words[:i]) :
+            return [(i%n)+1, (i//n)+1]
+        
+    else:
+        return [0,0]
